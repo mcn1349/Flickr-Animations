@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="style_flickr.css" rel="stylesheet" type="text/css">
+    <title>Flickr & Animations</title>
+  </head>
+  <body>
+
+    <script>
+    function jsonFlickrApi(rsp) {
+      window.rsp = rsp;
+      var s = "";
+      var length = rsp.photos.photo.length;
+      s = "<div class='web'><h3> total number is: " + length + "</h3></div><br/>";
+      s += "<div class='flickr_C'>";
+      for (var i=0; i < length; i++) {
+        var photo = rsp.photos.photo[i];
+        s += "<div class='flickr_boxes'>";
+        s += "<a class='linkz' href=\"http://www.flickr.com/photos/" + photo.owner + "/" + photo.id + "\">";
+        s += "<img class='images' alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
+        s +=  photo.server + "/" + photo.id+ "_" + photo.secret+ "_t.jpg\"/></img></a>";
+        s += "</div>";
+      }
+      s += "<h2 class='button_P'>Previous</h2><h2 class='button_N'>Next</h2></div>";
+      document.writeln(s);
+    }
+    </script>
+    <script
+      src="https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8c6640a50a84785519b485fdc83d4af5&tags=winter&per_page=5&format=json">
+    </script>
+  </body>
+</html>

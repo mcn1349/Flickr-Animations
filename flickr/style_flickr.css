@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+}
+
+.web{
+  width: 90%;
+  margin-bottom: 5%;
+  height: auto;
+  position: absolute;
+  left: 5%;
+}
+
+.flickr_C{
+    width: 200px;
+    height: 150px;
+    margin-top: 15%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 25px;
+    background-color: #999999;
+    box-shadow: 10px 10px 5px grey;
+    perspective: 1000px;
+    object-fit: contain;
+}
+
+.button_P{
+    position: absolute;
+    left: -0%;
+    top: 100%;
+    transform: translateY(-25%);
+    border-radius: 5px;
+    background-color: #CCC;
+}
+
+.button_N{
+    position: absolute;
+    left: 75%;
+    top: 100%;
+    transform: translateY(-25%);
+    border-radius: 5px;
+    background-color: #CCC;
+}
+
+.flickr_boxes{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    border-radius: 25px;
+    background-color: #999999;
+    z-index: 99;
+}
+
+.linkz{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.images{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flickr_boxes:nth-child(1){
+  animation: Deck_Next 2s 1s Linear forwards;
+  z-index: 100;
+}
+
+.flickr_boxes:nth-child(5){
+  animation: Deck_Pre 2s 3s Linear forwards;
+  z-index: 1;
+}
+
+
+@keyframes Deck_Pre{
+    0% { left: 50%; transform: translate(-50%, -50%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 1; }
+    50% { left: -75%; transform: translate(-50%, -50%) rotateY(45deg); box-shadow: 5px 5px 3px grey; z-index: 101; }
+    100% { left: 50%; transform: translate(-50%, -50%) rotateY(0deg); box-shadow: 10px 10px 5px grey;  z-index: 101; }
+    /*from { left: -100%; transform: translate(-50%, -50%) rotateY(-45deg); box-shadow: 5px 5px 3px grey;}
+    to { left: 50%; transform: translate(-50%, -50%) rotateY(0deg); box-shadow: 5px 5px 5px grey;}*/
+}
+@keyframes Deck_Next{
+    0% { left: 50%; transform: translate(-50%, -50%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 100; }
+    50% { left: 200%; transform: translate(-50%, -50%) rotateY(-45deg); box-shadow: 15px 15px 3px grey; z-index: 100; }
+    100% { left: 50%; transform: translate(-50%, -50%) rotateY(0deg); box-shadow: 10px 10px 5px grey;  z-index: 99; }
+    /*from { left: -100%; transform: translate(-50%, -50%) rotateY(-45deg); box-shadow: 5px 5px 3px grey;}
+    to { left: 50%; transform: translate(-50%, -50%) rotateY(0deg); box-shadow: 5px 5px 5px grey;}*/
+}
