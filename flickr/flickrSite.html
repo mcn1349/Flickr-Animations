@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link href="style_flickrSite.css" rel="stylesheet" type="text/css">
+        <title>Flickr Site</title>
+    </head>
+    <body>
+        <h1>Flickr API Project</h1>
+        <div class="container">
+            <input id="search" type="text" placeholder="Search Genre"/>
+            <button id="submit" onclick="Flickr_Fetch()">Submit</button>
+        </div>
+        <div id="Flickr_Output"></div>
+
+    </body>
+    <script>
+        var api_key = '8c6640a50a84785519b485fdc83d4af5';
+        var search = document.getElementById("search").value; 
+
+        function Flickr_Fetch() {
+        var script = document.createElement('script');
+        script.src = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+ api_key +"&tags="+ search +"&per_page=5&format=json";
+        //script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + document.getElementById("search").value;;
+        document.querySelector('head').appendChild(script);
+        }
+
+        function jsonFlickrApi(data) {
+        var image = "";
+        data.items.forEach(function (element) {
+        image += "<img src=\"" + element.media.m + "\"/>";
+        });
+        document.getElementById("Flickr_Output").innerHTML = image;
+        }
+    </script>
+</html>

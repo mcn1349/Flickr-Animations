@@ -1,0 +1,27 @@
+body {
+    background: #333 no-repeat;
+    background-image: -webkit-gradient(radial, 50% 0, 150, 50% 0, 300, from(#222), to(#333));
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: aliceblue
+}
+
+.container {
+    width: 500px;
+    margin: auto;
+    color: white;
+    font-size: 20px;
+    border: dotted 2px #AAA;
+    padding: 10px;
+}
+
+#search, #submit {
+    font-size: 25px
+}
+
+#Flickr_Output {
+    margin: 5%;
+}
