@@ -4,33 +4,107 @@
         <meta charset="utf-8">
         <link href="style_flickrSite.css" rel="stylesheet" type="text/css">
         <title>Flickr Site</title>
+        <script></script>
     </head>
     <body>
         <h1>Flickr API Project</h1>
         <div class="container">
             <input id="search" type="text" placeholder="Search Genre"/>
-            <button id="submit" onclick="Flickr_Fetch()">Submit</button>
+            <button id="submit" onclick="fetchingFlickr()">Submit</button>
         </div>
         <div id="Flickr_Output"></div>
 
     </body>
+    
+    <script>
+        var api_key = '8c6640a50a84785519b485fdc83d4af5';
+        var number = 5;
+
+        function fetchingFlickr() {
+            document.getElementById("Flickr_Output").innerHTML = '';
+            var search_value = document.getElementById("search").value; 
+            var api_url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+ api_key +"&tags="+ search_value;
+            api_url += "&per_page=" + number + "&format=json&jsoncallback=?";
+
+            obtainJSON(api_url, function(data) {
+                jsonFlickrApi(data);
+            });
+
+        }    
+
+        function obtainJSON(api_url, success) {
+
+            var date = '_' + +new Date;
+            var script = document.createElement('script');
+            var head = document.getElementsByTagName('head')[0] || document.documentElement;
+
+            window[date] = function(data) {
+                document.querySelector('head').removeChild(script);
+                success && success(data);
+            };
+            
+            script.src = api_url.replace('callback=?', 'callback=' + date);
+            head.appendChild(script);
+        }
+
+        function jsonFlickrApi(rsp) {
+            window.rsp = rsp;
+            var image = "";
+            var length = rsp.photos.photo.length;
+            for (var i=0; i < length; i++) {
+                var photo = rsp.photos.photo[i];
+                image += "<img alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
+                image +=  photo.server + "/" + photo.id+ "_" + photo.secret+ "_m.jpg\"/>";
+            }
+            document.getElementById("Flickr_Output").innerHTML = image;
+        }
+
+    </script>
+
+</html>
+
+
+
+
+<!--
+
     <script>
         var api_key = '8c6640a50a84785519b485fdc83d4af5';
         var search = document.getElementById("search").value; 
 
-        function Flickr_Fetch() {
+        function Flickr_Fetch_Api() {
+        document.getElementById("Flickr_Output").innerHTML = '';
         var script = document.createElement('script');
-        script.src = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+ api_key +"&tags="+ search +"&per_page=5&format=json";
-        //script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + document.getElementById("search").value;;
+        script.src = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+ api_key +"&tags="+ search +"&format=json";
         document.querySelector('head').appendChild(script);
         }
 
-        function jsonFlickrApi(data) {
+        function jsonFlickrApi(rsp) {
+        window.rsp = rsp;
+        var image = "";
+        var length = rsp.photos.photo.length;
+        for (var i=0; i < length; i++) {
+            var photo = rsp.photos.photo[i];
+            image += "<img alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
+            image +=  photo.server + "/" + photo.id+ "_" + photo.secret+ "_t.jpg\"/>";
+        }
+        document.getElementById("Flickr_Output").innerHTML = image;
+        }
+
+        
+        function Flickr_Fetch_Feed() {
+        var script = document.createElement('script');
+        script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + document.getElementById("search").value;;
+        document.querySelector('head').appendChild(script);
+        }
+        function jsonFlickrFeed(data) {
         var image = "";
         data.items.forEach(function (element) {
         image += "<img src=\"" + element.media.m + "\"/>";
         });
         document.getElementById("Flickr_Output").innerHTML = image;
         }
+
     </script>
-</html>
+
+-->
