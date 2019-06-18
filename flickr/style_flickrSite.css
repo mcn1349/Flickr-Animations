@@ -16,9 +16,10 @@ h1 {
     font-size: 20px;
     border: dotted 2px #AAA;
     padding: 10px;
+    object-fit: contain;
 }
 
-#search, #submit {
+#search, #perPage, #size,  #submit {
     font-size: 25px
 }
 
