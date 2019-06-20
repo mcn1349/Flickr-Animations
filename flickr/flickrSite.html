@@ -4,18 +4,17 @@
         <meta charset="utf-8">
         <link href="style_flickrSite.css" rel="stylesheet" type="text/css">
         <title>Flickr Site</title>
-        <script></script>
     </head>
-    <body>
-        <h1>Flickr API Project</h1>
+    <body >
+        <h1 class="title">Flickr API Project</h1>
         <div class="container">
             <input id="search" type="text" placeholder="Search Genre" value="Wild"/>
-            <input id="perPage" type="number" placeholder="#" min="1" max="100" value="5"/>
+            <input id="perPage" type="number" placeholder="#" min="1" max="100" value="3"/>
             <select id="size">
                 <option value="s">Small 240</option>
                 <option value="n">Small 320</option>
-                <option value="m">Medium 500</option>
-                <option value="z" selected>Medium 640</option>
+                <option value="m" selected>Medium 500</option>
+                <option value="z">Medium 640</option>
                 <option value="c">Medium 800</option>
             </select>
             <button id="submit" onclick="fetchingFlickr()">Submit</button>
@@ -41,6 +40,7 @@
                 api_url += "&per_page=" + perPage_value + "&format=json&jsoncallback=?";
 
                 obtainJSON(api_url, function(data) {
+                    stylesFlickr();
                     jsonFlickrApi(data, size_value);
                 });
             
@@ -74,18 +74,39 @@
             var length = rsp.photos.photo.length;
             for (var i=0; i < length; i++) {
                 var photo = rsp.photos.photo[i];
-                image += "<img alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
-                image +=  photo.server + "/" + photo.id+ "_" + photo.secret + "_"+size+".jpg\"/>";
+                image += "<div class='flickr_boxes'>";
+                image += "<div class='title_box'><h2 class='titleImg'>";
+                if (photo.title == ''){ image += "[No Title]"; } else { image += photo.title; }
+                image += "</h2></div><br/>";
+
+                image += "<img class='images' alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
+                image +=  photo.server + "/" + photo.id+ "_" + photo.secret + "_"+size+".jpg\"/><br/>";
+                image += "</div>";
             }
             document.getElementById("Flickr_Output").innerHTML = image;
+        }
+
+        function stylesFlickr() {
+            var CSS = '';
+
+            CSS += "";
+
+            var styleS = document.createElement('style');
+            var head = document.querySelector('head');
+
+            styleS.type = 'text/css';
+            if (styleS.styleSheet) {
+                styleS.styleSheet.cssText = CSS;
+            } else {
+                styleS.appendChild(document.createTextNode(CSS));
+            }
+
+            head.appendChild(styleS);
         }
 
     </script>
 
 </html>
-
-
-
 
 <!--
 
@@ -103,44 +124,5 @@
     [o]     <size label="Original" width="2400" height="1800" source="http://farm2.staticflickr.com/1103/567229075_6dc09dc6da_o.jpg" url="http://www.flickr.com/photos/stewart/567229075/sizes/o/" media="photo" />
         </sizes>
     }
-
-    <script>
-        var api_key = '8c6640a50a84785519b485fdc83d4af5';
-        var search = document.getElementById("search").value;
-
-        function Flickr_Fetch_Api() {
-        document.getElementById("Flickr_Output").innerHTML = '';
-        var script = document.createElement('script');
-        script.src = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+ api_key +"&tags="+ search +"&format=json";
-        document.querySelector('head').appendChild(script);
-        }
-
-        function jsonFlickrApi(rsp) {
-        window.rsp = rsp;
-        var image = "";
-        var length = rsp.photos.photo.length;
-        for (var i=0; i < length; i++) {
-            var photo = rsp.photos.photo[i];
-            image += "<img alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
-            image +=  photo.server + "/" + photo.id+ "_" + photo.secret+ "_t.jpg\"/>";
-        }
-        document.getElementById("Flickr_Output").innerHTML = image;
-        }
-
-
-        function Flickr_Fetch_Feed() {
-        var script = document.createElement('script');
-        script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + document.getElementById("search").value;;
-        document.querySelector('head').appendChild(script);
-        }
-        function jsonFlickrFeed(data) {
-        var image = "";
-        data.items.forEach(function (element) {
-        image += "<img src=\"" + element.media.m + "\"/>";
-        });
-        document.getElementById("Flickr_Output").innerHTML = image;
-        }
-
-    </script>
 
 -->

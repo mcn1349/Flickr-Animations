@@ -1,12 +1,13 @@
+
 body {
     background: #333 no-repeat;
     background-image: -webkit-gradient(radial, 50% 0, 150, 50% 0, 300, from(#222), to(#333));
     text-align: center;
 }
 
-h1 {
+.title {
     text-align: center;
-    color: aliceblue
+    color: aliceblue;
 }
 
 .container {
@@ -17,6 +18,7 @@ h1 {
     border: dotted 2px #AAA;
     padding: 10px;
     object-fit: contain;
+
 }
 
 #search, #perPage, #size,  #submit {
@@ -24,5 +26,68 @@ h1 {
 }
 
 #Flickr_Output {
-    margin: 5%;
+    object-fit: contain;
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    perspective: 1000px;
 }
+
+.flickr_boxes{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -38%) rotateY(0deg);
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px grey;
+    background-color: #999999;
+    object-fit: contain;
+    z-index: 99;
+}
+
+.title_box{
+    margin: 1%;
+}
+
+.titleImg {
+    text-align: center;
+    color: aliceblue;
+    margin: 1%;
+}
+
+.linkz{
+    margin: auto;
+}
+
+.images{
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.flickr_boxes:nth-child(1){
+    animation: Deck_Next 2s 1s Linear forwards;
+    z-index: 101;
+  }
+  
+.flickr_boxes:nth-child(3){
+    animation: Deck_Pre 2s 3s Linear forwards;
+    z-index: 1;
+  }
+  
+  
+  @keyframes Deck_Pre{
+      0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 1; }
+      50% { left: -75%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 5px 5px 3px grey; z-index: 101; }
+      100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey;  z-index: 101; }
+  }
+  @keyframes Deck_Next{
+      0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 101; }
+      50% { left: 200%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 15px 15px 3px grey; z-index: 99; }
+      100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey;  z-index: 99; }
+  }
+  
