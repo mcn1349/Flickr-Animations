@@ -46,7 +46,7 @@ body {
     box-shadow: 10px 10px 5px grey;
     background-color: #999999;
     object-fit: contain;
-    z-index: 99;
+    z-index: 100;
 }
 
 .title_box{
@@ -69,16 +69,42 @@ body {
     top: 0; left: 0; bottom: 0; right: 0;
 }
 
+/*
 .flickr_boxes:nth-child(1){
     animation: Deck_Next 2s 1s Linear forwards;
     z-index: 101;
-  }
+}
   
 .flickr_boxes:nth-child(3){
     animation: Deck_Pre 2s 3s Linear forwards;
     z-index: 1;
-  }
-  
+}
+*/
+
+#Back {
+    width: 1px; 
+    height: 1px; 
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    transform: translate(-50%, -25%);
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-right: 60px solid #999999;
+}
+
+#Next {
+    width: 1px; 
+    height: 1px; 
+    position: absolute;
+    left: 150%;
+    top: 50%;
+    transform: translate(-50%, -25%);
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #999999;
+}
+   
   
   @keyframes Deck_Pre{
       0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 1; }
