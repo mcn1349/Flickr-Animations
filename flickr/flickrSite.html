@@ -25,7 +25,7 @@
     </body>
 
     <script>
-        var api_key = '';// Please use your own API key
+        var api_key = '8c6640a50a84785519b485fdc83d4af5';// Please use your own API key
 
         function fetchingFlickr() {
 
@@ -74,7 +74,7 @@
             window.rsp = rsp;
             var image = "";
             var length = rsp.photos.photo.length;
-            image += "<div id='Back' onclick='styleFlickrTwo()'></div>";
+            image += "<div id='Back' onclick='styleFlickrBack()'></div>";
             for (var i=0; i < length; i++) {
                 var photo = rsp.photos.photo[i];
                 image += "<div class='flickr_boxes'>";
@@ -86,20 +86,27 @@
                 image +=  photo.server + "/" + photo.id+ "_" + photo.secret + "_"+size+".jpg\"/><br/>";
                 image += "</div>";
             }
-            image += "<div id='Next' onclick='styleFlickr()'></div>";
+            image += "<div id='Next' onclick='styleFlickrNext()'></div>";
             document.getElementById("Flickr_Output").innerHTML = image;
         }
 
-        function styleFlickr() {
+        function styleFlickrBack() {
             var box = document.getElementsByClassName('flickr_boxes');
-            box[2].setAttribute("style", "animation: Deck_Next 2s 1s Linear forwards; ");
-            setTimeout(function(){ box[2].setAttribute( "style", "z-index: 99;") ; }, 3000);
+            box[0].setAttribute( "style", "z-index: 99;");
+            box[0].setAttribute("style", "animation: Deck_Pre 2s 1s Linear forwards; ");
+            document.getElementById('Back').removeAttribute('onclick');
+            setTimeout(function(){ box[0].setAttribute( "style", "z-index: 101;"); 
+            document.getElementById('Back').setAttribute('onclick', 'styleFlickrBack()'); }, 3000);
         }
 
-        function styleFlickrTwo() {
+        function styleFlickrNext() {
             var box = document.getElementsByClassName('flickr_boxes');
-            box[2].style.animation = '';
-            box[2].style.zIndex = "101";
+            box[2].setAttribute( "style", "z-index: 101;");
+            box[2].setAttribute("style", "animation: Deck_Next 2s 1s Linear forwards; ");
+            document.getElementById('Next').removeAttribute('onclick');
+            setTimeout(function(){ box[2].setAttribute( "style", "z-index: 99;"); 
+            document.getElementById('Next').setAttribute('onclick', 'styleFlickrNext()'); }, 3000);
+            
         }
 
     </script>
@@ -123,6 +130,22 @@
     [l]     <size label="Large" width="1024" height="768" source="http://farm2.staticflickr.com/1103/567229075_2cf8456f01_b.jpg" url="http://www.flickr.com/photos/stewart/567229075/sizes/l/" media="photo" />
     [o]     <size label="Original" width="2400" height="1800" source="http://farm2.staticflickr.com/1103/567229075_6dc09dc6da_o.jpg" url="http://www.flickr.com/photos/stewart/567229075/sizes/o/" media="photo" />
         </sizes>
+    }
+
+-->
+
+<!-- Successful code
+
+    function styleFlickr() {
+        var box = document.getElementsByClassName('flickr_boxes');
+        box[2].setAttribute("style", "animation: Deck_Next 2s 1s Linear forwards; ");
+        setTimeout(function(){ box[2].setAttribute( "style", "z-index: 99;") ; }, 3000);
+    }
+
+    function styleFlickrTwo() {
+        var box = document.getElementsByClassName('flickr_boxes');
+        box[2].style.animation = '';
+        box[2].style.zIndex = "101";
     }
 
 -->
