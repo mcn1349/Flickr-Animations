@@ -25,7 +25,7 @@
     </body>
 
     <script>
-        var api_key = '8c6640a50a84785519b485fdc83d4af5';// Please use your own API key
+        var api_key = '';// Please use your own API key
 
         function fetchingFlickr() {
 
@@ -92,19 +92,17 @@
 
         function styleFlickrBack() {
             var box = document.getElementsByClassName('flickr_boxes');
-            box[0].setAttribute( "style", "z-index: 99;");
-            box[0].setAttribute("style", "animation: Deck_Pre 2s 1s Linear forwards; ");
+            box[0].setAttribute( "style", "animation: Deck_Pre 2s 1s Linear forwards;" );
             document.getElementById('Back').removeAttribute('onclick');
-            setTimeout(function(){ box[0].setAttribute( "style", "z-index: 101;"); 
+            setTimeout(function(){ box[0].setAttribute( "style", "z-index: 101;" ); 
             document.getElementById('Back').setAttribute('onclick', 'styleFlickrBack()'); }, 3000);
         }
 
         function styleFlickrNext() {
             var box = document.getElementsByClassName('flickr_boxes');
-            box[2].setAttribute( "style", "z-index: 101;");
-            box[2].setAttribute("style", "animation: Deck_Next 2s 1s Linear forwards; ");
+            box[2].setAttribute( "style", "animation: Deck_Next 2s 1s Linear forwards;" );
             document.getElementById('Next').removeAttribute('onclick');
-            setTimeout(function(){ box[2].setAttribute( "style", "z-index: 99;"); 
+            setTimeout(function(){ box[2].setAttribute( "style", "z-index: 99;" ); 
             document.getElementById('Next').setAttribute('onclick', 'styleFlickrNext()'); }, 3000);
             
         }
