@@ -107,13 +107,13 @@ body {
    
   
   @keyframes Deck_Pre{
-      0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 1; }
-      50% { left: -75%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 5px 5px 3px grey; z-index: 101; }
-      100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey;  z-index: 101; }
+      0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; }
+      50% { left: -75%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 5px 5px 3px grey; }
+      100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey; }
   }
   @keyframes Deck_Next{
-      0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; z-index: 101; }
-      50% { left: 200%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 15px 15px 3px grey; z-index: 99; }
-      100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey;  z-index: 99; }
+      0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; }
+      50% { left: 200%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 15px 15px 3px grey; }
+      100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey; }
   }
   
