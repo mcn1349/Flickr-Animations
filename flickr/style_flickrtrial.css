@@ -1,0 +1,56 @@
+
+body {
+    text-align: left;
+}
+
+.search_body {
+    float: left;
+}
+
+.title {
+    margin: 1%;
+}
+
+.container {
+    text-align: center;
+    width: 475px;
+    height: 40px;
+    margin: 1%;
+    border: dotted 2px #AAA;
+    object-fit: contain;
+    text-align: center;
+    position: relative;
+}
+
+#search, #perPage, #size,  #submit {
+    font-size: 15px;
+    margin: 0; 
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#Flickr_Output {
+    margin-top: 5%;
+    object-fit: contain;
+}
+
+.flickr_table {
+    width: 100%;
+    text-align: center;
+}
+
+.flickr_row {
+
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+.flickr_boxes {
+    margin: 5%;
+    float: left;
+    text-align: center;
+    position: relative;
+    vertical-align: baseline;
+}
