@@ -38,16 +38,21 @@ body {
 
 .flickr_table {
     width: 100%;
+    height: auto;
     text-align: center;
+    overflow:auto; 
 }
 
 .flickr_row {
-
-    text-align: center;
+    width: inherit;
     margin-bottom: 10%;
+    height: auto;
+    text-align: center;
+    overflow:auto; 
 }
 
 .flickr_boxes {
+    height: auto;
     margin: 5%;
     float: left;
     text-align: center;
