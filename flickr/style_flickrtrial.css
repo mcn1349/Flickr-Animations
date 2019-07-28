@@ -5,6 +5,7 @@ body {
 
 .search_body {
     float: left;
+    margin-bottom: 5%
 }
 
 .title {
@@ -32,30 +33,45 @@ body {
 }
 
 #Flickr_Output {
-    margin-top: 5%;
+    margin-top: 10%;
     object-fit: contain;
+    margin-bottom: 10%;
 }
 
 .flickr_table {
     width: 100%;
     height: auto;
     text-align: center;
-    overflow:auto; 
+    overflow:auto;
+    display: table;
+    border-collapse: collapse; 
 }
 
 .flickr_row {
-    width: inherit;
-    margin-bottom: 10%;
     height: auto;
     text-align: center;
-    overflow:auto; 
+    overflow:auto;
+    display: table-row;
 }
 
 .flickr_boxes {
     height: auto;
-    margin: 5%;
-    float: left;
-    text-align: center;
-    position: relative;
-    vertical-align: baseline;
+    margin: 1%;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* float: left;
+    text-align: center; 
+    vertical-align: baseline;*/
+    display: table-cell;    
+}
+
+.images {
+    vertical-align: middle;
+    animation: back 2s linear forwards;
+}
+
+@keyframes Back{
+    0% { left: 50%; transform: translate(-50%, -38%) rotateY(0deg); box-shadow: 10px 10px 5px grey; }
+    50% { left: -75%; transform: translate(-50%, -38%) rotateY(180deg) ; box-shadow: 5px 5px 3px grey; }
+    100% { left: 50%; transform: translate(-50%, -38%) rotateY(360deg); box-shadow: 10px 10px 5px grey; }
 }

@@ -85,15 +85,27 @@
             var image = "";
             var length = rsp.photos.photo.length;
             image += "<div class='flickr_table'>";
+            var gW = getWidth(size);
+            
             var width_W = window.innerWidth;
-            var width_S = getWidth(size)*1.25;
+            var width_S = gW*1.25;
             var width_T = width_S;
+
+            var height_r = (gW-(gW/4))/3;
+
             image += "<div class='flickr_row'>";
             var i = 0;
             for (i=0; i<length; i++) {
                 var photo = rsp.photos.photo[i];
                 
-                if ( width_T >= width_W ) { image += "</div><br/><div class='flickr_row'>"; alert(i + " " + width_T); width_T = width_S; }
+                if ( width_T >= width_W ) { 
+                    image += "</div>";
+                    
+                    image += "<div class='flickr_row' style='height: " + height_r + "px; width: 100%'></div>";
+
+                    image += "<div class='flickr_row'>"; 
+                    width_T = width_S; /*alert(i + " " + width_T);*/ 
+                }
                 width_T += width_S; 
 
                 image += "<div class='flickr_boxes'>";
@@ -124,6 +136,25 @@
                 alert("Error appeared in sizes dropbox.");
             }
         }
+
+        function getImage(sizeV) {
+            if (sizeV == "_t") {
+                return 'image_t';
+            } else if (sizeV == "_m") {
+                return 'image_m';
+            } else if (sizeV == "_n") {
+                return 'image_n';
+            } else if (sizeV == "") {
+                return 'image';
+            } else if (sizeV == "_z") {
+                return 'image_z';
+            } else if (sizeV == "_c") {
+                return 'image_c';
+            } else {
+                alert("Error appeared in sizes dropbox.");
+            }
+        }
+
 
     </script>
 
