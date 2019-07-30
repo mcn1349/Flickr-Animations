@@ -68,7 +68,7 @@ body {
 .images {
     vertical-align: middle;
     transform: rotateY(90deg);
-    animation: Back 1s linear forwards;
+    animation: Back 1s 1s linear forwards;
 }
 
 @keyframes Back{

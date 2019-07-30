@@ -53,6 +53,7 @@
 
                 obtainJSON(api_url, function(data) {
                     jsonFlickrApi(data, size_value);
+                    console.log(data);
                 });
             
             } else if (perPage_value > 100) {
@@ -88,7 +89,7 @@
             var gW = getWidth(size);
             
             var width_W = window.innerWidth;
-            var width_S = gW*1.25;
+            var width_S = gW*1.1;
             var width_T = width_S;
 
             var height_r = (gW-(gW/4))/3;
@@ -110,8 +111,9 @@
 
                 image += "<div class='flickr_boxes'>";
                 //image += "<h6 class='titleImg'>"; //if (photo.title == ''){ image += "[No Title]"; } else { image += photo.title; } //image += "</h6>";
+                image += "<a href=\"http://www.flickr.com/photos/" + photo.owner + "/" + photo.id + "\">";
                 image += "<img class='images' alt=\"" + photo.title + "\" src=\"http://farm" + photo.farm + ".static.flickr.com/";
-                image +=  photo.server + "/" + photo.id+ "_" + photo.secret + size +".jpg\"/>";
+                image +=  photo.server + "/" + photo.id+ "_" + photo.secret + size +".jpg\"/></a>";
                 image += "</div>";
             }
             if (i == (length-1)) {image += "</div>";}
