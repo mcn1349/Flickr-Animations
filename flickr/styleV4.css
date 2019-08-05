@@ -1,0 +1,458 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #262626;
+}
+
+.box
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1080px;
+    height: 720px;
+    background: #000;
+    
+    overflow: hidden;
+}
+
+.about
+{   
+    width: 650px;
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about h2
+{
+    margin: 0%;
+    padding: 0%;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 3%;
+}
+
+.about p
+{
+    margin: 0%;
+    padding: 0%;
+    font-size: 35px;
+}
+
+.about h3
+{
+    margin: 0%;
+    padding: 0%;
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-top: 3%;
+}
+
+.figure
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.One
+{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: bottom;
+    transition: .5s;
+    transition-delay: 0s;
+    background-position: 1080px 720px;
+}
+.box:hover .One
+{
+    transform: translateX(100%);
+}
+
+
+.Two
+{
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.1s;
+    background-position: 1080px 648px;
+}
+.box:hover .Two
+{
+    transform: translateX(100%);
+}
+
+
+.Three
+{
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.2s;
+    background-position: 1080px 576px;
+}
+.box:hover .Three
+{
+    transform: translateX(100%);
+}
+
+
+.Four
+{
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.3s;
+    background-position: 1080px 504px;
+}
+.box:hover .Four
+{
+    transform: translateX(100%);
+}
+
+
+.Five
+{
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.4s;
+    background-position: 1080px 432px;
+}
+.box:hover .Five
+{
+    transform: translateX(100%);
+}
+
+.Six
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.5s;
+    background-position: 1080px 360px;
+}
+.box:hover .Six
+{
+    transform: translateX(100%);
+}
+
+.Seven
+{
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.6s;
+    background-position: 1080px 288px;
+}
+.box:hover .Seven
+{
+    transform: translateX(100%);
+}
+
+.Eight
+{
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.7s;
+    background-position: 1080px 216px;
+}
+.box:hover .Eight
+{
+    transform: translateX(100%);
+}
+
+.Nine
+{
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.8s;
+    background-position: 1080px 144px;
+}
+.box:hover .Nine
+{
+    transform: translateX(100%);
+}
+
+.Ten
+{
+    content: '';
+    position: absolute;
+    top: 90%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+    background: url(imageAA.png);
+    transform-origin: top;
+    transition: .5s;
+    transition-delay: 0.9s;
+    background-position: 1080px 72px;
+}
+.box:hover .Ten
+{
+    transform: translateX(100%);
+}
+
+
+.box_cover
+{    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1080px;
+    height: 720px;
+    overflow: hidden;
+}
+
+.box_cover::before
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-200%, -50%);
+    width: 540px;
+    height: 720px;
+    background: #262626;
+    opacity: 1;
+    content: "";
+    animation: left_exit 5.1s linear;
+}
+
+.box_cover::after
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, -50%);
+    width: 540px;
+    height: 720px;
+    background: #262626;
+    opacity: 1;
+    content: "";
+    animation: right_exit 5.1s linear;
+}
+
+.loading_bar
+{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 30px;
+    background: rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25), 0 1px rgba(255, 255, 255, 0.8);
+    z-index: 5;
+    opacity: 0;
+    animation: load_end 5s ease;
+}
+
+
+.loading_bar span 
+{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    background-color: #00FF00;
+    background-size: 100%;
+    background-image: linear-gradient(to bottom, #32CD32, #008000);
+    animation: progress-bar 2.5s ease;
+}
+
+.loading_bar span::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    background-image: linear-gradient(45deg, #fff 25%,
+                                      rgba(0,0,0,0) 25%,
+                                      rgba(0,0,0,0) 50%,
+                                      #fff 50%, 
+                                      #fff 75%,
+                                      rgba(0,0,0,0) 75%,
+                                      rgba(0,0,0,0));
+    background-size: 30px 30px;
+    opacity: 0.3;
+    transform: translateY(-50%); 
+    animation: progress-bar-before 0.5s infinite linear;
+}
+
+
+.loading_bar span::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    background-image: linear-gradient(-45deg, #fff 25%,
+                                      rgba(0,0,0,0) 25%,
+                                      rgba(0,0,0,0) 50%,
+                                      #fff 50%, 
+                                      #fff 75%,
+                                      rgba(0,0,0,0) 75%,
+                                      rgba(0,0,0,0));
+    background-size: 30px 30px;
+    opacity: 0.3;
+    transform: translateY(50%) ; 
+    animation: progress-bar-after 0.5s infinite linear;
+}
+
+@keyframes progress-bar
+{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+@keyframes progress-bar-before
+{
+    0%{
+        background-position: 5px 100%;
+    }
+
+    100%{
+        background-position: 35px 100%;
+    }
+}
+
+@keyframes progress-bar-after
+{
+    0%{
+        background-position: 0px 100%;
+    }
+
+    100%{
+        background-position: 30px 100%;
+    }
+}
+
+@keyframes load_end
+{
+    0%{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    50%{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translate(-50%, 50%) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes left_exit
+{
+    0%{
+        transform: translate(-100%, -50%);
+        opacity: 1;
+    }
+
+    90%{
+        transform: translate(-100%, -50%);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-200%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes right_exit
+{
+    0%{
+        transform: translate(0%, -50%);
+        opacity: 1;
+    }
+    90%{
+        transform: translate(0%, -50%);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(100%, -50%);
+        opacity: 1;
+    }
+}
