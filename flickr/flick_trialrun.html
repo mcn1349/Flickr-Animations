@@ -30,8 +30,9 @@
         function fetchingFlickr() {
 
             var search_value = document.getElementById("search").value;
-            var perPage_value = 50;//document.getElementById("perPage").value;            
-            var size_value = "_n";//document.getElementById("size").value;
+            var perPage_value = 10;//document.getElementById("perPage").value;        
+            var size_value = "_c";//document.getElementById("size").value;
+            var size_zoom = "_n";    
 
             
             /*<!-- Example sizes
@@ -60,7 +61,7 @@
                 api_url += "&per_page=" + perPage_value + "&format=json&jsoncallback=?";
 
                 obtainJSON(api_url, function(data) {
-                    jsonFlickrApi(data, size_value);
+                    jsonFlickrApi(data, size_value, size_zoom);
                     console.log(data);
                 });
             
@@ -89,18 +90,18 @@
             head.appendChild(script);
         }
 
-        function jsonFlickrApi(rsp, size) {
+        function jsonFlickrApi(rsp, size, zoom) {
             window.rsp = rsp;
             var image = "";
             var length = rsp.photos.photo.length;
             image += "<div class='flickr_table'>";
-            var gW = getWidth(size);
+            var gW = getWidth(zoom);
             
             var width_W = window.innerWidth;
             var width_S = gW;
             var width_T = width_S;
 
-            var height_r = (gW-(gW/4))/5;
+            var height_r = (gW-(gW/4))/10;
 
             image += "<div class='flickr_row'>";
             var i = 0;
@@ -117,16 +118,22 @@
                 }
                 width_T += width_S; 
 
-                image += "<div class='flickr_boxes'>";
+                image += "<div class='flickr_boxes' style='width: "+gW+"px; height: "+(gW-(gW/4))+"px; '>";
                 image += "<a href='http://www.flickr.com/photos/" + photo.owner + "/" + photo.id + "'>";
-                image += "<img class='images' alt='" + photo.title + "' src='http://farm" + photo.farm + ".static.flickr.com/";
+                image += "<img class='images' id='imagef' alt='" + photo.title + "' src='http://farm" + photo.farm + ".static.flickr.com/";
                 image +=  photo.server + "/" + photo.id+ "_" + photo.secret + size +".jpg'";
-                image += "style='animation: Back 1s 1s linear forwards;'/></a>";
+                image += "style='animation: Back 1s 1s linear forwards; '/></a>";
                 image += "</div>";
             }
             if (i == (length-1)) {image += "</div>";}
             image += "</div>";
             document.getElementById("Flickr_Output").innerHTML = image;
+            setTimeout(function(){ 
+                var img = document.getElementsByClassName('images');
+                for (i=0; i<length; i++){
+                    img[i].style.transform = "rotateY(0deg)";
+                }
+            }, 2000);
         }
 
         function getWidth(sizeV) {
