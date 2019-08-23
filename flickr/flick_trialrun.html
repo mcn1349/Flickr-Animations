@@ -6,6 +6,7 @@
         <title>Flickr Site</title>
     </head>
     <body>
+        
         <div class="search_body">
             <h1 class="title">Flickr API Project</h1>
             <div class="container">
@@ -15,7 +16,8 @@
         </div><br/>
         
         <div id="Flickr_Output"></div>
-
+        <div id="page_mask" onclick='fadeout()'></div>
+        <div id="flickr_dialog" style="opacity: 0; transition: .5s; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);"></div>
     </body>
 
     <script>
@@ -117,12 +119,13 @@
                     width_T = width_S; /*alert(i + " " + width_T);*/ 
                 }
                 width_T += width_S; 
+                var flickr_image_link = "http://farm" + photo.farm + ".static.flickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret;
 
-                image += "<div class='flickr_boxes' style='width: "+gW+"px; height: "+(gW-(gW/4))+"px; '>";
-                image += "<a href='http://www.flickr.com/photos/" + photo.owner + "/" + photo.id + "'>";
-                image += "<img class='images' id='imagef' alt='" + photo.title + "' src='http://farm" + photo.farm + ".static.flickr.com/";
-                image +=  photo.server + "/" + photo.id+ "_" + photo.secret + size +".jpg'";
-                image += "style='animation: Back 1s 1s linear forwards; '/></a>";
+                image += "<div class='flickr_boxes' style='width: "+gW+"px; height: "+(gW-(gW/4))+"px; ' >";
+                //image += "<a href='http://www.flickr.com/photos/" + photo.owner + "/" + photo.id + "'>";
+                image += "<img class='images' id='imagef' alt='" + photo.title + "' src='"+flickr_image_link+zoom+".jpg;' ";
+                image += " style='animation: Back 1s 1s linear forwards;' ";//</a>";
+                image += " onclick='enlarge( \""+photo.title+"\", \""+flickr_image_link+size+".jpg\");' />";
                 image += "</div>";
             }
             if (i == (length-1)) {image += "</div>";}
@@ -170,6 +173,28 @@
             } else {
                 alert("Error appeared in sizes dropbox.");
             }
+        }
+
+        function enlarge(title, link){
+            var page_mask = document.getElementById("page_mask");
+            page_mask.setAttribute("style", "opacity: 1; transition: .5s; background: rgba(0, 0, 0, 0.5);position: fixed;top: 0;right: 0;bottom: 0;left: 0;");
+            
+            var flickr_dialog = document.getElementById("flickr_dialog");
+            var elimage = "<img ";
+            elimage += "alt='"+title+"' ";
+            elimage += "src='"+link+"' />";
+            flickr_dialog.innerHTML = elimage;
+            flickr_dialog.style.opacity = 1;
+        }
+
+        function fadeout(){
+            var page_mask = document.getElementById("page_mask");
+            page_mask.style.opacity=0;
+            setTimeout(function(){ page_mask.removeAttribute('style') }, 500);
+            var flickr_dialog = document.getElementById("flickr_dialog");
+            flickr_dialog.style.opacity = 0;
+            setTimeout(function(){ flickr_dialog.innerHTML = ""; }, 500);
+            
         }
 
 

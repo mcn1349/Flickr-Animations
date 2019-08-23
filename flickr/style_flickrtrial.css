@@ -59,11 +59,6 @@ body {
     transition: 10s;
 }
 
-.flickr_boxes:hover{
-    display: contents; 
-}
-
-
 .images {
     max-width: 100%;
     max-height: 100%;
